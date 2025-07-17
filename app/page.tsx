@@ -4,9 +4,10 @@ import MediaUploader from "@/components/MediaUploader";
 import MessagePreview from "@/components/MessagePreview";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { SheetRow } from "@/lib/parser";
 
 export default function Home() {
-  const [sheetData, setSheetData] = useState<any[]>([]);
+  const [sheetData, setSheetData] = useState<SheetRow[]>([]);
   const [template, setTemplate] = useState("Hi {{Name}}, your session is at {{Time}}.");
   const [mediaLink, setMediaLink] = useState("");
 

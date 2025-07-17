@@ -1,10 +1,10 @@
 // components/FileUploader.tsx
 "use client";
-import { parseExcel } from "@/lib/parser";
+import { parseExcel, SheetRow } from "@/lib/parser";
 import React from "react";
 
 interface Props {
-  onDataLoaded: (data: any[]) => void;
+  onDataLoaded: (data: SheetRow[]) => void;
 }
 
 export default function FileUploader({ onDataLoaded }: Props) {

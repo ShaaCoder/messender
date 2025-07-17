@@ -1,16 +1,20 @@
 // components/MessagePreview.tsx
 "use client";
 import React from "react";
+import { SheetRow } from "@/lib/parser";
 
 interface Props {
-  data: any[];
+  data: SheetRow[];
   template: string;
   mediaLink: string;
 }
 
 export default function MessagePreview({ data, template, mediaLink }: Props) {
-  const buildMessage = (row: any) => {
-    let msg = template.replace(/\{\{(.*?)\}\}/g, (_, key) => row[key.trim()] || "");
+  const buildMessage = (row: SheetRow) => {
+    let msg = template.replace(/\{\{(.*?)\}\}/g, (_, key) => {
+      const value = row[key.trim()];
+      return value !== undefined ? String(value) : "";
+    });
     if (mediaLink) msg += `\n\n🔗 File: ${mediaLink}`;
     return msg;
   };
