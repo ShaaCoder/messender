@@ -56,7 +56,7 @@ export default function MessagePreview({ data, template, mediaLink }: Props) {
             {data.map((row, i) => {
               const msg   = buildMessage(row);
               const phone = row.Phone?.toString().replace(/\D/g, "");
-              const url   = `https://wa.me/91${phone}?text=${encodeURIComponent(msg)}`;
+              const url   = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
               return (
                 <tr key={i}>
                   <td className="border p-2">{row.Name}</td>
